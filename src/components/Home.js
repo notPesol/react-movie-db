@@ -2,7 +2,8 @@
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config';
 
 // components
-
+import HeroImage from './HeroImage';
+import Grid from './Grid';
 // hook
 import { useHomeFetch } from './hooks/useHomeFetch'
 // images
@@ -10,11 +11,25 @@ import NoImg from '../images/no_image.jpg';
 
 function Home() {
   const { state, loading, error } = useHomeFetch();
-
+  const randNum = state.results[0] ? Math.floor(Math.random() * state.results.length) : null;
   console.log(state);
 
   return (
-    <div>Home page</div>
+    <>
+      {
+        state.results[0] &&
+        <HeroImage
+          image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[randNum].backdrop_path}`}
+          title={state.results[randNum].original_title}
+          text={state.results[randNum].overview}
+        />
+      }
+      <Grid header="Popular Movies">
+        {state.results.map(movie =>(
+          <div key={movie.id}>{movie.title}</div>
+        ))}
+      </Grid>
+    </>
   )
 }
 

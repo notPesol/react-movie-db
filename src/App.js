@@ -11,7 +11,6 @@ function App() {
        <GlobalStyle />
       <Header/>
       <Home />
-      start
     </div>
   );
 }
