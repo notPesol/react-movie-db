@@ -10,10 +10,11 @@ const initialState = {
 }
 
 export const useHomeFetch = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
+  
   const fetchMoveis = async (page, searchTerm = '') => {
     try {
       setError(false);
@@ -30,10 +31,11 @@ export const useHomeFetch = () => {
     }
     setLoading(false);
   }
-  // initial render
+  // initial render and search
   useEffect(() => {
-    fetchMoveis(1);
-  }, []);
+    setState(initialState);
+    fetchMoveis(1, searchTerm);
+  }, [searchTerm]);
 
-  return { state, loading, error }
+  return { state, loading, error, searchTerm, setSearchTerm }
 }
