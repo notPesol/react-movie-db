@@ -14,7 +14,7 @@ function SearchBar({ setSearchTerm }) {
       initial.current = false;
       return;
     }
-    
+
     const timer = setTimeout(() => {
       setSearchTerm(state)
     }, 500);
