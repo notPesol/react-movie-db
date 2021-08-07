@@ -4,8 +4,6 @@ import { Wrapper, Image } from './Actor.style';
 // proptypes can use on developer mode only can't use on production
 import PropTypes from 'prop-types';
 
-import NoImage from '../../images/no_image.jpg';
-
 function Actor({ name, character, imageUrl }) {
   return (
     <Wrapper>
@@ -20,10 +18,6 @@ Actor.propTypes = {
   name: PropTypes.string,
   character: PropTypes.string,
   imageUrl: PropTypes.string
-}
-
-Actor.defaultProps = {
-  imageUrl: NoImage
 }
 
 export default Actor

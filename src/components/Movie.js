@@ -13,7 +13,7 @@ import Actor from './Actor';
 import { useMovieFetch } from './hooks/useMovieFetch';
 
 // img
-// import NoImage from '../images/no_image.jpg';
+import NoImage from '../images/no_image.jpg';
 
 // path params
 import { useParams } from 'react-router-dom';
@@ -42,7 +42,7 @@ function Movie() {
             key={actor.credit_id}
             imageUrl={actor.profile_path ?
               `${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`
-              : undefined}
+              : NoImage}
             name={actor.name}
             character={actor.character}
           />
