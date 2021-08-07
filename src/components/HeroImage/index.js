@@ -1,6 +1,9 @@
 // styles
 import { Wrapper, Content, Text } from './HeroImage.style';
 
+// proptypes can use on developer mode only can't use on production
+import PropTypes from 'prop-types';
+
 function HeroImage({ image, title, text }) {
   return (
     <Wrapper image={image}>
@@ -12,6 +15,12 @@ function HeroImage({ image, title, text }) {
       </Content>
     </Wrapper>
   )
+}
+
+HeroImage.propTypes = {
+  image: PropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string
 }
 
 export default HeroImage

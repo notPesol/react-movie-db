@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 // styles
 import { Image } from "./Thumb.style";
 
+// proptypes can use on developer mode only can't use on production
+import PropTypes from 'prop-types';
+
 function Thumb({ image, movieId, clickable }) {
   return (
     <div>
@@ -16,6 +19,12 @@ function Thumb({ image, movieId, clickable }) {
       }
     </div>
   )
+}
+
+Thumb.propTypes = {
+  image: PropTypes.string,
+  clickable: PropTypes.bool,
+  movieId: PropTypes.number
 }
 
 export default Thumb;

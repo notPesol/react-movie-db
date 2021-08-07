@@ -6,6 +6,10 @@ import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.jpg';
 // Styles
 import { Wrapper, Content, Text } from './MovieInfo.style';
+
+// proptypes can use on developer mode only can't use on production
+import PropTypes from 'prop-types';
+
 function MovieInfo({ movie }) {
   return (
     <Wrapper backdrop={movie.backdrop_path}>
@@ -41,6 +45,10 @@ function MovieInfo({ movie }) {
       </Content>
     </Wrapper>
   )
+}
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object
 }
 
 export default MovieInfo
