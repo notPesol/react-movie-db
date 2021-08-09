@@ -1,5 +1,6 @@
 // Component
 import Thumb from "../Thumb";
+import Rate from "../Rate";
 // Config
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 // Image
@@ -10,7 +11,20 @@ import { Wrapper, Content, Text } from './MovieInfo.style';
 // proptypes can use on developer mode only can't use on production
 import PropTypes from 'prop-types';
 
+import { useContext } from "react";
+// API
+import API from '../../API';
+// Context
+import { Context } from "../../context";
+
 function MovieInfo({ movie }) {
+  const [user] = useContext(Context);
+
+  const handleRating = async (value) => {
+    const rate = await API.rateMovie(user.sessionId, movie.id, value);
+    console.log(rate);
+  }
+
   return (
     <Wrapper backdrop={movie.backdrop_path}>
       <Content>
@@ -41,6 +55,12 @@ function MovieInfo({ movie }) {
               }
             </div>
           </div>
+          {user &&
+            <div>
+              <p>Rate Movie</p>
+              <Rate callback={handleRating} />
+            </div>
+          }
         </Text>
       </Content>
     </Wrapper>

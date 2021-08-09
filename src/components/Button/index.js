@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 function Button({ text, callback }) {
   return (
-    <Wrapper onClick={() => callback(true)}>
+    <Wrapper onClick={(e) => callback(e)}>
       {text}
     </Wrapper>
   )
